@@ -13,9 +13,8 @@ public class WorkerThread extends Thread {
 	@Override
 	public void run() {
 		while (!isStopped) {
-			Runnable task = null;
 			try {
-				task = taskQueue.take();
+				Runnable task = taskQueue.take();
 				task.run();
 			} catch (InterruptedException e) {
 				break;
